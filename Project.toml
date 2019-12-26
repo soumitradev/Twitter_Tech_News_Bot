@@ -1,0 +1,10 @@
+name = "twitter_tech_news_bot"
+uuid = "8ed33c10-53e5-45a8-9f8c-bf3b3ebbe28a"
+authors = ["soumitradev <soumitra.shewale.dev@gmail.com>"]
+version = "0.1.0"
+
+[deps]
+HTTP = "cd3eb016-35fb-5094-929b-558a96fad6f3"
+JSON = "682c06a0-de6a-54ab-a142-c8b1cf79cde6"
+OAuth = "22d8b318-f366-56fb-a292-a93f7d76c017"
+Twitter = "92393bbf-ba23-5323-a3fa-fbe1e5f35af8"
