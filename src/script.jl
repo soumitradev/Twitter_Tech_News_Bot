@@ -18,7 +18,8 @@ get_oauth(endpoint, options) = oauth_request_resource(endpoint, "GET", options, 
 tweet_oauth(endpoint, options) = oauth_request_resource(endpoint, "POST", options, oauth_consumer_key, oauth_consumer_secret, oauth_token, oauth_token_secret)
 
 function tweet()
-    retweeted_ids = JSON.parse(string(read("tweeted.json", String)))
+    println(readdir())
+    retweeted_ids = JSON.parse(string(read("./tweeted/tweeted.json", String)))
 
     tweets = get_oauth(get_following, Dict("count" => "$number_of_tweets"))
     jsonCode = String(tweets.body)
@@ -46,6 +47,12 @@ function tweet()
         retweet_url = "https://api.twitter.com/1.1/statuses/retweet/$id.json"
         mytweet = tweet_oauth(retweet_url, options)
     end
+end
+
+if !("tweeted.json" in readdir())
+    while open("tweeted.json", "w+") do file
+        write(file, "[]")
+    end;
 end
 
 tweet()
