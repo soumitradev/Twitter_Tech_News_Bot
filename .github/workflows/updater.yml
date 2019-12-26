@@ -2,8 +2,8 @@ name: updater
 
 on:
   schedule:
-    - cron: '*/2 * * * *'
-      # Runs every 2 minutes to get latest news
+    - cron: '0 5 * * Mon/7'
+      # Runs every week to get latest packages
 
 jobs:
   build:
