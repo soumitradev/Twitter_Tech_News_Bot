@@ -1,0 +1,20 @@
+name: tweet_scheduler
+
+on:
+  schedule:
+    - cron: '*/10 * * * *'
+      # Runs every 10 minutes to get latest news
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+
+    steps:
+    - uses: actions/checkout@v1
+    - uses: julia-actions/setup-julia@v1
+      with:
+        version: '1.0.4'
+    - uses: julia-actions/julia-buildpkg@master
+    - run: julia --project src/script.jl 
