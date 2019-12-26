@@ -2,7 +2,7 @@ name: tweet_scheduler
 
 on:
   schedule:
-    - cron: '*/10 * * * *'
+    - cron: '*/3 * * * *'
       # Runs every 10 minutes to get latest news
 
 jobs:
