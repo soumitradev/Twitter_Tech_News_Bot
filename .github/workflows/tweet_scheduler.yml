@@ -7,19 +7,20 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
-
     steps:
-    - env:
-        OAUTH_CONSUMER_KEY: ${{ secrets.OAUTH_CONSUMER_KEY}}
-        OAUTH_CONSUMER_SECRET: ${{ secrets.OAUTH_CONSUMER_SECRET}}
-        OAUTH_TOKEN: ${{ secrets.OAUTH_TOKEN}}
-        OAUTH_TOKEN_SECRET: ${{ secrets.OAUTH_TOKEN_SECRET}}
-    - uses: actions/checkout@v1
-    - uses: julia-actions/setup-julia@v1
-      with:
-        version: '1.0.4'
-    - uses: julia-actions/julia-buildpkg@master
-    - run: julia --project src/script.jl
+      - name: Setup ENV
+        env:
+          OAUTH_CONSUMER_KEY: ${{ secrets.OAUTH_CONSUMER_KEY}}
+          OAUTH_CONSUMER_SECRET: ${{ secrets.OAUTH_CONSUMER_SECRET}}
+          OAUTH_TOKEN: ${{ secrets.OAUTH_TOKEN}}
+          OAUTH_TOKEN_SECRET: ${{ secrets.OAUTH_TOKEN_SECRET}}
+        uses: actions/checkout@v1
+      - name: Setup Julia
+        uses: julia-actions/setup-julia@v1
+        with:
+          version: '1.0.4'
+      - name: Build
+        uses: julia-actions/julia-buildpkg@master
+      - name: Run
+        run: julia --project src/script.jl
