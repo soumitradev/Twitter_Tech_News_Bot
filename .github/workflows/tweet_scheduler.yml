@@ -18,3 +18,19 @@ jobs:
         version: '1.0.4'
     - uses: julia-actions/julia-buildpkg@master
     - run: julia --project src/script.jl 
+    - name: git check in
+      env:
+          GIT_OWNER_EMAIL: ${{ secrets.GIT_OWNER_EMAIL }} 
+          PUSH_TOKEN: ${{ secrets.PUSH_TOKEN }}
+      run: |
+        git config user.email "$GIT_OWNER_EMAIL"
+        git config user.name "soumitradev"
+        if [[ `git status --porcelain` ]]; then
+          git add .
+          git commit -a -m "Update retweeted tweets"
+          git remote rm origin
+          git remote add origin https://soumitradev:$PUSH_TOKEN@github.com/soumitradev/Twitter_Tech_News_Bot.git
+          git push origin HEAD:master
+        else
+          echo 'No changes'
+        fi
