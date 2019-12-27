@@ -11,7 +11,7 @@ oauth_token_secret = ENV["OAUTH_TOKEN_SECRET"]
 retweet_url = "https://api.twitter.com/1.1/statuses/retweet/:id.json"
 get_following = "https://api.twitter.com/1.1/statuses/home_timeline.json"
 
-# Number of tweets to get every 15 minutes
+# Number of tweets to get every 5 minutes
 # I'm using just below Twitter's limit
 # News is fast, and the bot should keep pace.
 number_of_tweets = 14
