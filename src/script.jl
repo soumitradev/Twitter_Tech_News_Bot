@@ -1,11 +1,11 @@
 using OAuth, HTTP, JSON
 
 # Set basic variables for authentication
-oauth_consumer_key = "3APw4LnxlOgKzPoaa7EFwbOXZ"
-oauth_consumer_secret = "oP9GrVUow2ivMsijrO0yxIhVhA2T4iltjeKPBaFbCbskeL1VN5"
+oauth_consumer_key = ENV["OAUTH_CONSUMER_KEY"]
+oauth_consumer_secret = ENV["OAUTH_CONSUMER_SECRET"]
 
-oauth_token = "1207655773783769088-Ar8GUF6tkNe7tvZtvxzCgZ4IYivZWV"
-oauth_token_secret = "TBqmc5bBzbrAeaNEpu1AfLqcbpF5IhKht9DF91vBgESKg"
+oauth_token = ENV["OAUTH_TOKEN"]
+oauth_token_secret = ENV["OAUTH_TOKEN_SECRET"]
 
 # All the API URLs to call for various GET and POST requests
 retweet_url = "https://api.twitter.com/1.1/statuses/retweet/:id.json"
