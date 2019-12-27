@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Setup ENV
-        env:
+      - env:
           OAUTH_CONSUMER_KEY: "${{ secrets.OAUTH_CONSUMER_KEY}}"
           OAUTH_CONSUMER_SECRET: "${{ secrets.OAUTH_CONSUMER_SECRET}}"
           OAUTH_TOKEN: "${{ secrets.OAUTH_TOKEN}}"
