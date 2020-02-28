@@ -23,4 +23,4 @@ jobs:
       - name: Build
         uses: julia-actions/julia-buildpkg@master
       - name: Run
-      - run: julia --project src/script.jl
+        run: julia --project src/script.jl
