@@ -1,4 +1,4 @@
-name: tweet_scheduler
+name: tweet
 
 on:
   schedule:
